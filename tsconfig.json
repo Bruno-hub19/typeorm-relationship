@@ -4,19 +4,35 @@
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./src",
+    "allowJs": true,
     "removeComments": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
     "paths": {
-      "@configs/*": [
-        "configs/*"
+      "@controllers/*": [
+        "controllers/*"
       ],
-      "@modules/*": [
-        "modules/*"
+      "@dtos/*": [
+        "dtos/*"
       ],
-      "@shared/*": [
-        "shared/*"
+      "@entities/*": [
+        "entities/*"
+      ],
+      "@errors/*": [
+        "errors/*"
+      ],
+      "@repositories/*": [
+        "repositories/*"
+      ],
+      "@routes/*": [
+        "routes/*"
+      ],
+      "@services/*": [
+        "services/*"
+      ],
+      "@typeorm/*": [
+        "typeorm/*"
       ]
     },
     "esModuleInterop": true,
