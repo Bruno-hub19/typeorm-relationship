@@ -24,13 +24,13 @@
   ],
   "rules": {
     "prettier/prettier": "error",
+    "@typescript-eslint/no-unused-vars": "off",
     "no-unused-vars": "off",
     "no-console": "off",
     "camelcase": "off",
-    "class-methods-use-this": "off",
     "no-useless-constructor": "off",
+    "class-methods-use-this": "off",
     "import/prefer-default-export": "off",
-    "@typescript-eslint/no-unused-vars": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
