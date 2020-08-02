@@ -1,7 +1,7 @@
 import { Repository, getRepository } from 'typeorm';
 
-import { ICreateCustomerDTO } from '../dtos/ICreateCustomerDTO';
-import { Customer } from '../entities/Customer';
+import { Customer } from 'entities/Customer';
+import { ICreateCustomerDTO } from 'dtos/ICreateCustomerDTO';
 import { ICustomersRepository } from './interfaces/ICustomersRepository';
 
 class CustomersRepository implements ICustomersRepository {
@@ -19,20 +19,20 @@ class CustomersRepository implements ICustomersRepository {
     return customer;
   }
 
-  public async findByEmail(email: string): Promise<Customer | undefined> {
-    const customer = await this.ormRepository.findOne({ where: { email } });
+  public async findByEmail(
+    customer_email: string,
+  ): Promise<Customer | undefined> {
+    const customer = await this.ormRepository.findOne({
+      where: { email: customer_email },
+    });
 
     return customer;
   }
 
-  public async findById(id: string): Promise<Customer | undefined> {
-    const customer = await this.ormRepository.findOne({ where: { id } });
-
-    return customer;
-  }
-
-  public async findAll(): Promise<Customer[] | undefined> {
-    const customer = await this.ormRepository.find();
+  public async findById(customer_id: string): Promise<Customer | undefined> {
+    const customer = await this.ormRepository.findOne({
+      where: { id: customer_id },
+    });
 
     return customer;
   }

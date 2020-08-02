@@ -1,27 +1,29 @@
 import {
   Entity,
+  Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
-  JoinColumn,
   OneToMany,
 } from 'typeorm';
 
 import { OrdersProducts } from './OrdersProducts';
-import { Customer } from './Customer';
 
-@Entity('orders')
-class Order {
+@Entity('products')
+class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(type => Customer)
-  @JoinColumn({ name: 'customer_id' })
-  customer: Customer;
+  @Column({ unique: true })
+  name: string;
 
-  @OneToMany(type => OrdersProducts, order => Order)
-  @JoinColumn()
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  price: number;
+
+  @Column({ type: 'numeric' })
+  quantity: number;
+
+  @OneToMany(type => OrdersProducts, product => Product)
   order_products: OrdersProducts[];
 
   @CreateDateColumn()
@@ -31,4 +33,4 @@ class Order {
   updated_at: Date;
 }
 
-export { Order };
+export { Product };

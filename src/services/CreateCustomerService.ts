@@ -1,8 +1,8 @@
-import { AppError } from '../errors/AppError';
+import { AppError } from 'errors/AppError';
 
-import { ICustomersRepository } from '../repositories/interfaces/ICustomersRepository';
-import { ICreateCustomerDTO } from '../dtos/ICreateCustomerDTO';
-import { Customer } from '../entities/Customer';
+import { ICreateCustomerDTO } from 'dtos/ICreateCustomerDTO';
+import { Customer } from 'entities/Customer';
+import { ICustomersRepository } from 'repositories/interfaces/ICustomersRepository';
 
 class CreateCustomerService {
   constructor(private customersRepository: ICustomersRepository) { } // eslint-disable-line

@@ -1,11 +1,11 @@
 import { Router } from 'express';
 
-import { customerRoutes } from './customer.routes';
-import { ordersRoutes } from './orders.routes';
+import { customersRoutes } from './customers.routes';
+import { productsRoutes } from './products.routes';
 
 const routes = Router();
 
-routes.use('/customers', customerRoutes);
-routes.use('/orders', ordersRoutes);
+routes.use('/customers', customersRoutes);
+routes.use('/products', productsRoutes);
 
 export { routes };
