@@ -23,7 +23,7 @@ class Product {
   @Column({ type: 'numeric' })
   quantity: number;
 
-  @OneToMany(type => OrdersProducts, product => Product)
+  @OneToMany(type => OrdersProducts, orders_products => orders_products.product)
   order_products: OrdersProducts[];
 
   @CreateDateColumn()

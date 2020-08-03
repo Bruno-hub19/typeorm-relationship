@@ -3,8 +3,8 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  PrimaryGeneratedColumn,
   JoinColumn,
+  PrimaryGeneratedColumn,
   ManyToOne,
 } from 'typeorm';
 
@@ -16,13 +16,19 @@ class OrdersProducts {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(type => Order, order_products => OrdersProducts)
-  @JoinColumn({ name: 'order_id' })
-  order: Order;
+  @Column()
+  product_id: string;
 
-  @ManyToOne(type => Product, order_products => OrdersProducts)
+  @Column()
+  order_id: string;
+
+  @ManyToOne(type => Product, products => products.order_products)
   @JoinColumn({ name: 'product_id' })
   product: Product;
+
+  @ManyToOne(type => Order, orders => orders.order_products)
+  @JoinColumn({ name: 'order_id' })
+  order: Order;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   price: number;
